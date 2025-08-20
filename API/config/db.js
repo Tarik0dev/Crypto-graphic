@@ -16,4 +16,4 @@ pool.connect()
     .then(() => console.log('connexion réussie à postgreSQL'))
     .catch(err => console.error('connexion échouée à postgreSQL :', err))
 
-    module.exports = pool
+module.exports = pool
