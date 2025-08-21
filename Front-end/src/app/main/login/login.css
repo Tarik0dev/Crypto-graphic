@@ -15,6 +15,13 @@
   justify-content: center;
   align-items: center;
   gap: 20px;
+
+  background: linear-gradient(
+    150deg,
+    rgba(34, 197, 94, 0.315) 0%,
+    rgb(6 26 6) 20%,
+    rgba(0, 0, 0, 1) 100%
+  );
 }
 
 h2,
@@ -36,6 +43,10 @@ button {
   width: 100%;
   height: 2em;
   font-size: 1.3em;
+}
+button:hover {
+  cursor: pointer;
+  color: var(--color-text-secondary);
 }
 form {
   background-color: var(--color-card);
@@ -102,7 +113,7 @@ input:focus {
 
   form {
     min-width: 30%;
-  
+
     height: 40%;
   }
 }
