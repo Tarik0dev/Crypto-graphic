@@ -1,0 +1,48 @@
+<div class="screen-form">
+  <h2>Inscription</h2>
+
+  <!-- Formulaire Angular avec ngForm -->
+  <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+
+    <!-- Email -->
+    <div>
+      <label for="email">Email</label>
+      <input
+        type="email"
+        name="email"
+        [(ngModel)]="email"
+        placeholder="email@crypto.com"
+        required
+      />
+    </div>
+
+    <!-- Mot de passe -->
+    <div>
+      <label for="password">Mot de passe</label>
+      <input
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+        placeholder="••••••••"
+        required
+      />
+    </div>
+
+    <!-- Confirmation mot de passe -->
+    <div>
+      <label for="confirmPassword">Confirmer votre mot de passe</label>
+      <input
+        type="password"
+        name="confirmPassword"
+        [(ngModel)]="confirmPassword"
+        placeholder="••••••••"
+        required
+      />
+    </div>
+
+    <!-- Bouton désactivé si formulaire invalide -->
+    <button type="submit" [disabled]="!registerForm.valid">Confirmer</button>
+  </form>
+
+  <p>Vous possédez déjà un compte ? <a routerLink="/">Connectez-vous</a></p>
+</div>

@@ -1,19 +1,32 @@
+<div class="screen-form">
+  <h2>Connexion</h2>
 
-<div class="login">
-    <h2>Connexion</h2>
-
-
-<form action="">
-    <div><label for="">Email</label>
-        <input type="email" placeholder="email@crypto.com">
+  <!-- Formulaire Angular avec ngForm -->
+  <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+    <div>
+      <label for="email">Email</label>
+      <input
+        type="email"
+        name="email"
+        [(ngModel)]="email"
+        placeholder="email@crypto.com"
+        required
+      />
     </div>
 
-    <div><label for="">Mot de passe</label>
-        <input type="password" placeholder="••••••••">
+    <div>
+      <label for="password">Mot de passe</label>
+      <input
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+        placeholder="••••••••"
+        required
+      />
     </div>
 
     <button type="submit">Se connecter</button>
-</form>
+  </form>
 
-<p>Pas encore de compte ? <a href="#">Inscription</a></p>
+  <p>Pas encore de compte ? <a routerLink="/register">Inscription</a></p>
 </div>

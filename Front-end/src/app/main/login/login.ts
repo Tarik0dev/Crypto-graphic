@@ -1,27 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ApiService } from '../../services/api.service';
-import { Authentification, User } from '../../models/authentification';
 import { FormsModule } from '@angular/forms';
-
+import { RouterLink } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule],
   templateUrl: './login.html',
-  styleUrl: './login.css'
+  styleUrls: ['./login.css'],
+  imports: [FormsModule, RouterLink,RouterModule]
 })
-export class Login implements OnInit
-{
+export class Login {
+  email = '';
+  password = '';
+  error = '';
 
-  dataUser: User[] = []
-  constructor(private apiService: ApiService){}
+  constructor(private apiService: ApiService) {}
 
-  ngOnInit(): void {
+  onSubmit() {
+  const credentials = {
+    email: this.email,
+    password: this.password
+  };
 
-    this.apiService.getUserData().subscribe(Response => {
-      this.dataUser = Response.dataUser
-      return console.log(this.dataUser)
-    })
-  }
-
+  this.apiService.login(credentials)
+    .subscribe({
+      next: (res) => {
+        alert('Vous êtes bien connecté');
+      },
+      error: (err) => {
+        alert('Mauvais identifiants');
+      }
+    });
+}
 }
